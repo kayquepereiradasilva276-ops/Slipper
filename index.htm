@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slipper-AUX | Interface</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #00d4ff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            border: 2px solid #00d4ff;
+            padding: 20px;
+            box-shadow: 0 0 20px #00d4ff;
+            background: rgba(0, 20, 40, 0.9);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px #00d4ff;
+        }
+
+        input {
+            background: transparent;
+            border: 1px solid #00d4ff;
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            text-align: center;
+        }
+
+        .btn {
+            background: #001a33;
+            border: 1px solid #00d4ff;
+            color: #00d4ff;
+            padding: 10px;
+            margin: 5px;
+            width: 90%;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #00d4ff;
+            color: #000;
+            box-shadow: 0 0 15px #00d4ff;
+        }
+
+        .btn-open {
+            color: #fff;
+            border-color: #fff;
+            margin-top: 15px;
+        }
+
+        #menu { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen" class="container">
+        <h1>SLIPPER-AUX</h1>
+        <p>REQUER AUTENTICAÇÃO</p>
+        <input type="text" id="user" placeholder="USUÁRIO">
+        <button class="btn" onclick="checkLogin()">ENTRAR</button>
+    </div>
+
+    <div id="menu" class="container">
+        <h1>PAINEL ATIVO</h1>
+        <button class="btn">Aimbot 100%</button>
+        <button class="btn">Aumentar Precisão</button>
+        <button class="btn">Sem Recuo</button>
+        <button class="btn">Precisão Avançada</button>
+        <button class="btn">Ativar 120 FPS</button>
+        <button class="btn">Ativar Otimização</button>
+        
+        <button class="btn btn-open" onclick="openGame()">ABRIR FREE FIRE</button>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const user = document.getElementById('user').value;
+            if (user === "AUX") {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('menu').style.display = 'block';
+            } else {
+                alert("ACESSO NEGADO: USUÁRIO INVÁLIDO");
+            }
+        }
+
+        function openGame() {
+            // Em navegadores, por segurança, não é possível abrir apps locais diretamente
+            // Este link tenta abrir via protocolo de URL (comum em dispositivos móveis)
+            window.location.href = "freefire://"; 
+            alert("Tentando inicializar o Free Fire...");
+        }
+    </script>
+</body>
+</html>
